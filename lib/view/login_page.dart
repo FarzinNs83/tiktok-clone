@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:tiktok_clone/gen/assets.gen.dart';
 import 'package:tiktok_clone/view/register_page.dart';
@@ -14,7 +13,7 @@ class LoginPage extends StatefulWidget {
 
 TextEditingController emailTextEditingController = TextEditingController();
 TextEditingController pwTextEditingController = TextEditingController();
-final bool progressBar = false;
+const bool progressBar = false;
 
 class _LoginPageState extends State<LoginPage> {
   @override
@@ -123,9 +122,9 @@ class _LoginPageState extends State<LoginPage> {
                             width: 6,
                           ),
                           GestureDetector(
-                            onTap: () => Get.to(const RegisterPage()),
+                            onTap: () => Get.to(() => const RegisterPage()),
                             child: const Text(
-                              "Sign in Now!",
+                              "Sign Up Now!",
                               style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.blueGrey,
@@ -137,7 +136,10 @@ class _LoginPageState extends State<LoginPage> {
                       )
                     ],
                   )
-                : Container()
+                : CircularProgressIndicator(
+                    backgroundColor: Colors.red,
+                    color: Colors.black,
+                  )
           ],
         ),
       ),
